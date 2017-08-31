@@ -1,0 +1,35 @@
+<div class="jumbotron">
+    <h1 class="text-center">Cadastro de Transações</h1>
+</div>
+<div class="container">
+    <form (submit)="cadastrar($event)" class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Conta de Origem</label>
+                <input class="form-control" name="contaOrigem" [(ngModel)]="transacao.contaOrigem" maxlength="6">
+            </div>
+            <div class="form-group">
+                <label>Conta de Destino</label>
+                <input class="form-control" name="contaDestino" [(ngModel)]="transacao.contaDestino" maxlength="6">
+            </div>
+            <div class="form-group">
+                <label>Valor da Transferencia</label>
+                <input class="form-control" name="valorTransferencia" [(ngModel)]="transacao.valorTransferencia">
+            </div>
+            <div class="form-group">
+                <label>Taxa</label>
+                <input class="form-control" name="taxa" [(ngModel)]="transacao.taxa" readonly>
+            </div>
+            <div class="form-group">
+                <label>Data de Transferencia</label>
+                <input class="form-control" type="date" pattern="dd/MM/yyyy" name="dataTransferencia" [(ngModel)]="transacao.dataTransferencia" (blur)="calcularTaxa($event)">
+            </div>
+            <div class="form-group">
+                <label>Data de Agendamento</label>
+                <label class="form-control" name="dataAgendamento">{{transacao.dataAgendamento | date: "dd/MM/yyyy"}}</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+        </div>
+    </form>
+</div>

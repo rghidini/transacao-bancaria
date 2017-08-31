@@ -1,0 +1,42 @@
+<div class="jumbotron">
+    <h1 class="text-center">Lista de Transações</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a [routerLink]="['/cadastro']" class="btn btn-primary">
+                            Nova transação
+                        </a>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <!-- fim col-md-12 -->
+    </div>
+    <!-- fim row -->
+    <br>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <th>Conta de Origem</th>
+                <th>Conta de Destino</th>
+                <th>Valor da Transferencia</th>
+                <th>Taxa</th>
+                <th>Data de Agendamento</th>
+                <th>Data de Transferencia</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transacao of transacoes">
+                    <td>{{transacao.contaOrigem}}</td>
+                    <td>{{transacao.contaDestino}}</td>
+                    <td>R${{transacao.valorTransferencia}}</td>
+                    <td>R${{transacao.taxa}}</td>
+                    <td>{{transacao.dataAgendamento | date:"dd/MM/yyyy"}}</td>
+                    <td>{{transacao.dataTransferencia | date:"dd/MM/yyyy"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
